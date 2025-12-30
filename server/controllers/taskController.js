@@ -39,13 +39,13 @@ const updateTask=async (req,res)=>{
  }
 
  const updateTaskComplete= async (req,res)=>{
-    const {id,complete}= req.body
-    if(!id || !complete)
+    const {id}= req.body
+    if(!id)
         return req.send("the id and complete are required")
     const task= await Task.findById(id)
     if(!task)
         return res.status(400).send("not found")
-    task.completed=complete
+    task.completed=!task.completed
     const newTask=await task.save()
     res.json(newTask)
  }

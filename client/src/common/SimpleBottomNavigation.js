@@ -1,29 +1,19 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import { FaCheck } from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
 import { MdPhotoLibrary } from "react-icons/md";
-import { MdAddPhotoAlternate } from "react-icons/md";
-import { MdOutlinePhotoLibrary } from "react-icons/md";
-import { MdCameraAlt } from "react-icons/md";
-import { MdLibraryAddCheck } from "react-icons/md";
-import { MdImage } from "react-icons/md";
-import { MdGrading } from "react-icons/md";
-import { MdEditDocument } from "react-icons/md";
-import { MdDriveFileRenameOutline } from "react-icons/md";
 import { MdContacts } from "react-icons/md";
 import { MdChecklistRtl } from "react-icons/md";
-import { MdCheck } from "react-icons/md";
-import { MdBorderColor } from "react-icons/md";
 import { MdArticle } from "react-icons/md";
 
 
 export default function SimpleBottomNavigation() {
+  const navigate= useNavigate()
   const [value, setValue] = React.useState(0);
 
-  return (
+  return (<>
     <Box sx={{ width: 500 }}>
       <BottomNavigation
         showLabels
@@ -32,11 +22,13 @@ export default function SimpleBottomNavigation() {
           setValue(newValue);
         }}
       >
-        <BottomNavigationAction label={<NavLink to="tasks">Tasks</NavLink>} icon={<FaCheck />} />
-        <BottomNavigationAction label={<NavLink to="posts">Posts</NavLink>} icon={<FaCheck />} />
-        <BottomNavigationAction label={<NavLink to="photos">Photos</NavLink>} icon={<FaCheck />} />
-        <BottomNavigationAction label={<NavLink to="users">Users</NavLink>} icon={<FaCheck />} />
+        <BottomNavigationAction label="Tasks" icon={<MdChecklistRtl />} onClick={() => navigate("/tasks")}/>
+        <BottomNavigationAction label="Posts" icon={<MdArticle />} onClick={() => navigate("/posts")}/>
+        <BottomNavigationAction label="Photos" icon={<MdPhotoLibrary />} onClick={() => navigate("/photos")}/>
+        <BottomNavigationAction label="Users" icon={<MdContacts />} onClick={() => navigate("/users")}/>
       </BottomNavigation>
     </Box>
+      
+    </>
   );
 }

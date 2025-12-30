@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import SingleTask from "./SingleTask"
 import {NavLink} from "react-router-dom"
+import CardAddTask from "./CardAddTask"
 
 
 
@@ -16,12 +17,14 @@ const TasksList = () => {
     },[])
   return (
     <>
+        <CardAddTask fetchTasks={fetchTasks}/>
         {tasks.map(task=>{
             return <div>
                 <SingleTask task={task} fetchTasks={fetchTasks}/>
             </div>
         })}
-        <NavLink to="add">add task</NavLink>
+        {/* <NavLink to="add">add task</NavLink> */}
+        
     </>
   )
 }

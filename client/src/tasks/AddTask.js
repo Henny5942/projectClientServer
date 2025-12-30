@@ -7,7 +7,7 @@ const AddTask = () => {
   const [title,setTitle]=useState("")
   const addTask = async (e)=>{
     e.preventDefault()
-    const {data}= axios.post("http://localhost:4000/api/tasks",{title})
+    const {data}=await axios.post("http://localhost:4000/api/tasks",{title})
     setTitle("")
     navigate("/tasks")
   }
