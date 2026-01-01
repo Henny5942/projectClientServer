@@ -18,10 +18,8 @@ const PhotosList = () => {
         {photos.map(photo=>{
             return <div>
                 <img src={photo.imageUrl} alt={photo.title} width={150} />
-                {/* <SinglePost post={post} fetchPhotos={fetchPhotos}/> */}
             </div>
         })}
-        {/* <NavLink to="add" >add photo</NavLink> */}
     </>
   )
 }

@@ -1,8 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import SingleTask from "./SingleTask"
-import {NavLink} from "react-router-dom"
-import CardAddTask from "./CardAddTask"
+import AddNewTask from "./AddNewTask"
 
 
 
@@ -10,20 +9,20 @@ const TasksList = () => {
     const [tasks,setTasks]= useState([])
     const fetchTasks = async ()=>{
         const {data}= await axios.get("http://localhost:4000/api/tasks/")
-        setTasks(data)
+        if(data)
+            setTasks(data.sort((a,b)=>a._id-b._id))
     }
     useEffect(()=>{
         fetchTasks()
     },[])
   return (
     <>
-        <CardAddTask fetchTasks={fetchTasks}/>
+        <AddNewTask fetchTasks={fetchTasks}/>
         {tasks.map(task=>{
             return <div>
                 <SingleTask task={task} fetchTasks={fetchTasks}/>
             </div>
         })}
-        {/* <NavLink to="add">add task</NavLink> */}
         
     </>
   )

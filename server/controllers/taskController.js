@@ -16,10 +16,10 @@ const getTaskById= async(req,res)=>{
 }
 
 const createTask= async (req,res)=>{
-    const {title, tags}=req.body
+    const {title, tags,completed}=req.body
     if(!title)
         return res.status(400).send("title is required")
-    const task= await Task.create({title,tags})
+    const task= await Task.create({title,tags,completed})
     if(!task)
         return res.send("error")
     res.json(task)

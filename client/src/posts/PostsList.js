@@ -1,26 +1,28 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import SinglePost from "./SinglePost"
-import {NavLink} from "react-router-dom"
+import AddNewPost from "./AddNewPost"
 
 
 const PostsList = () => {
     const [posts,setPosts]= useState([])
     const fetchPosts = async ()=>{
         const {data}= await axios.get("http://localhost:4000/api/posts/")
-        setPosts(data)
+        if(data)
+            setPosts(data.sort((a,b)=>a._id-b._id))
     }
     useEffect(()=>{
         fetchPosts()
     },[])
   return (
     <>
+        <AddNewPost fetchPosts={fetchPosts}/>
         {posts.map(post=>{
             return <div>
                 <SinglePost post={post} fetchPosts={fetchPosts}/>
             </div>
         })}
-        <NavLink to="add" >add post</NavLink>
+        
     </>
   )
 }
