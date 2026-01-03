@@ -58,7 +58,7 @@ export default function CustomizedDialogs({post,fetchPosts}) {
         open={open}
       >
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-          New post
+          Update the post
         </DialogTitle>
         <IconButton
           aria-label="close"

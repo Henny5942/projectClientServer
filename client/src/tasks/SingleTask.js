@@ -1,9 +1,9 @@
 import axios from 'axios'
 import {MdDelete} from "react-icons/md"
 import UpdateTask from './UpdateTask';
-import { MdCheck } from "react-icons/md";
+
 import { MdClear } from "react-icons/md";
-import { useState } from 'react';
+
 import Checkbox from '@mui/material/Checkbox';
 
 

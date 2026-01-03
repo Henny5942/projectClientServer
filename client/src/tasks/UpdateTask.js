@@ -60,7 +60,7 @@ export default function CustomizedDialogs({task, fetchTasks}) {
         open={open}
       >
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-          Change your task
+          Update the task
         </DialogTitle>
         <IconButton
           aria-label="close"

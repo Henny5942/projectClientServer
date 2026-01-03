@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import SingleUser from "./SingleUser"
 import AddNewUser from "./AddNewUser"
 
+
 const UsersList = () => {
     const [users,setUsers]= useState([])
     const fetchUsers = async ()=>{

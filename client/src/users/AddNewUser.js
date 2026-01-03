@@ -23,7 +23,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export default function CustomizedDialogs({fetchTasks}) {
+export default function CustomizedDialogs({fetchUsers}) {
   const [open, setOpen] = React.useState(false);
 
   const [values,setValues]=useState({
@@ -33,7 +33,7 @@ export default function CustomizedDialogs({fetchTasks}) {
     address:{
         street:"",
         city:"",
-        building:0},
+        building: 0},
     phone:""
     })
  
@@ -50,8 +50,15 @@ export default function CustomizedDialogs({fetchTasks}) {
         })
     if(!data)
         alert("error")
-    setValues({})
-    fetchTasks()
+    setValues({name:"",
+    username:"",
+    email:"",
+    address:{
+        street:"",
+        city:"",
+        building: 0},
+    phone:""})
+    fetchUsers()
     handleClose()
   }
 
@@ -93,13 +100,11 @@ export default function CustomizedDialogs({fetchTasks}) {
                 <TextField onChange={(e)=>{setValues({...values,name:e.target.value})}} value={values.name}  label="Name" variant="outlined" required/>
                 <TextField onChange={(e)=>{setValues({...values,username:e.target.value})}} value={values.username}  label="Username" variant="outlined" required/>
                 <TextField onChange={(e)=>{setValues({...values,email:e.target.value})}} value={values.email}  label="Email" type='email' variant="outlined" />
-                <TextField onChange={(e)=>{setValues({...values,phone:e.target.value})}} value={values.phone}  label="Phone" />
-                <Box>
-                    <TextField onChange={(e)=>{setValues({...values,address:{...values.address,city:e.target.value}})}} value={values.address.city}  label="city" variant="standard"/>
-                    <TextField onChange={(e)=>{setValues({...values,address:{...values.address,street:e.target.value}})}} value={values.address.street}  label="street" variant="standard"/>
-                    <TextField onChange={(e)=>{setValues({...values,address:{...values.address,building:e.target.value}})}} value={values.address.building}  label="building" variant="standard"/>
-                    
-                </Box>
+                <TextField onChange={(e)=>{setValues({...values,phone:e.target.value})}} value={values.phone} type="number"  label="Phone" />
+                <label>address:</label>
+                <TextField onChange={(e)=>{setValues({...values,address:{...values.address,city:e.target.value}})}} value={values.address.city}  label="city" variant="standard"/>
+                <TextField onChange={(e)=>{setValues({...values,address:{...values.address,street:e.target.value}})}} value={values.address.street}  label="street" variant="standard"/>
+                <TextField onChange={(e)=>{setValues({...values,address:{...values.address,building:Number(e.target.value)}})}} value={values.address.building!==0?values.address.building:""} type="number" inputProps={{ min: 1, max: 999 }} label="building" variant="standard"/>
                 
               
             

@@ -37,6 +37,7 @@ const createUser= async (req,res)=>{
     user.name=name
     user.username=username
     user.email=email
+    user.phone=phone
     user.address=address
     const newUser=await user.save()
     res.json(newUser)
