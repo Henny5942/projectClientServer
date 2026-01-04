@@ -15,9 +15,7 @@ import {
   Select,
   MenuItem
 } from "@mui/material";
-
 import TextField from '@mui/material/TextField';
-import Checkbox from '@mui/material/Checkbox';
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -97,9 +95,9 @@ export default function CustomizedDialogs({fetchPhotos}) {
         <MenuItem value="image4.jpg">image4</MenuItem>
         <MenuItem value="image5.jpg">image5</MenuItem>
         <MenuItem value="image6.jpg">image6</MenuItem>
-        <MenuItem value="image6.jpg">image7</MenuItem>
-        <MenuItem value="image6.jpg">image8</MenuItem>
-        <MenuItem value="image6.jpg">image9</MenuItem>
+        <MenuItem value="image7.jpg">image7</MenuItem>
+        <MenuItem value="image8.jpg">image8</MenuItem>
+        <MenuItem value="image9.jpg">image9</MenuItem>
 
       </Select>
     </FormControl>

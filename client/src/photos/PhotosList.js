@@ -1,31 +1,68 @@
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import IconButton from '@mui/material/IconButton';
+import AddNewPhoto from "./AddNewPhoto"
+import UpdatePhoto from "./UpdatePhoto"
+
+import {MdDelete} from "react-icons/md"
 import axios from "axios"
 import { useEffect, useState } from "react"
-import AddNewPhoto from "./AddNewPhoto"
-import SinglePhoto from "./SinglePhoto"
-import ShowPhotos from "./ShowPhotos"
 
-const PhotosList = () => {
-    const [photos,setPhotos]= useState([])
+export default function TitlebarImageList() {
+
+  const [photos,setPhotos]= useState([])
     const fetchPhotos = async ()=>{
         const {data}= await axios.get("http://localhost:4000/api/photos/")
-        setPhotos(data.sort((a,b)=>a._id-b._id))
+        setPhotos(data)
     }
     useEffect(()=>{
         fetchPhotos()
-    },[])
+    },[photos])
+
+
+    const deletePhoto= async(photo)=>{
+        const {data}=await axios.delete("http://localhost:4000/api/photos/"+photo._id)
+        if(!data)
+          alert("not deleted")
+        fetchPhotos()
+    }
+
   return (
     <>
-        <AddNewPhoto fetchPhotos={fetchPhotos}/>
-
-        {photos.map(photo=>{
-            return <div>
-                <SinglePhoto photo={photo} fetchPhotos={fetchPhotos}/>
-            </div>
-        })}
-        
-
+    <AddNewPhoto fetchPhotos={fetchPhotos}/>
+    <ImageList sx={{ width: 1200, height: 500 }}>
+      <ImageListItem key="Subheader" cols={2}>
+        <h1>Photos</h1>
+      </ImageListItem>
+      {photos.map((photo) => (
+        <ImageListItem key={photo.imageUrl}>
+          <img
+            srcSet={"http://localhost:4000/"+photo.imageUrl}
+            src={"http://localhost:4000/"+photo.imageUrl}
+            alt={photo.title}
+            loading="lazy"
+          />
+          <ImageListItemBar
+            title={photo.title}
+            
+            actionIcon={
+              <>
+              <UpdatePhoto photo={photo} fetchPhotos={fetchPhotos}/>
+              <IconButton 
+                sx={{ color: 'rgba(255, 255, 255, 0.54)', height:80}}
+                aria-label={`info about ${photo.title}`}
+                onClick={()=>{deletePhoto(photo)}}
+                >
+                <MdDelete />
+              </IconButton>
+              </>
+            }
+          />
+        </ImageListItem>
+      ))}
+    </ImageList>
     </>
-  )
+  );
 }
 
-export default PhotosList

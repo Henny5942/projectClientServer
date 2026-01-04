@@ -48,7 +48,7 @@ export default function CustomizedDialogs({photo,fetchPhotos}) {
 
   return (
     <React.Fragment>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button sx={{border:"none",backgroundColor:"darkgrey"}} variant="outlined" onClick={handleClickOpen}>
         <MdCreate />
       </Button>
       <BootstrapDialog
