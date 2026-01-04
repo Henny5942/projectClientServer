@@ -5,6 +5,7 @@ import TasksList from './tasks/TasksList'
 import PostsList from './posts/PostsList';
 import PhotosList from "./photos/PhotosList"
 import UsersList from "./users/UsersList"
+import ShowPhotos from "./photos/ShowPhotos"
 
 
 function App() {
