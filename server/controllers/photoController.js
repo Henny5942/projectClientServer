@@ -17,8 +17,8 @@ const getPhotoById= async(req,res)=>{
 
 const createPhoto= async (req,res)=>{
     const {title, imageUrl}=req.body
-        if(!title)
-            return res.status(400).send("title is required")
+        if(!imageUrl)
+            return res.status(400).send("imageUrl is required")
         const photo= await Photo.create({title,imageUrl})
         if(!photo)
             return res.send("error")
@@ -27,8 +27,8 @@ const createPhoto= async (req,res)=>{
 
 const updatePhoto= async(req,res)=>{
     const {id,title,imageUrl}=req.body
-        if(!id || !title)
-            return res.status(400).send("id title are required")
+        if(!id || !imageUrl)
+            return res.status(400).send("id and imageUrl are required")
         const photo= await Photo.findById(id)
         if(!photo)
             return res.status(400).send("not found")
