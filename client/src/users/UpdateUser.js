@@ -10,9 +10,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 import { useState } from 'react';
 import { MdCreate } from "react-icons/md";
-
 import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -66,9 +64,20 @@ export default function CustomizedDialogs({user,fetchUsers}) {
 
   return (
     <React.Fragment>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <IconButton
+        onClick={handleClickOpen}
+        sx={{
+          backgroundColor: '#1976d2',
+          color: 'white',
+          '&:hover': {
+            backgroundColor: '#115293',
+            transform: 'scale(1.1)',
+          },
+          transition: 'all 0.2s ease-in-out',
+        }}
+      >
         <MdCreate />
-      </Button>
+      </IconButton>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"

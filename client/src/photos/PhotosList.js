@@ -31,7 +31,7 @@ export default function TitlebarImageList() {
   return (
     <>
     <AddNewPhoto fetchPhotos={fetchPhotos}/>
-    <ImageList sx={{ width: 1200, height: 500 }}>
+    <ImageList sx={{ width: 1200, height: 500,margin:2, padding:2 }}>
       <ImageListItem key="Subheader" cols={2}>
         <h1>Photos</h1>
       </ImageListItem>
@@ -50,12 +50,16 @@ export default function TitlebarImageList() {
               <>
               <UpdatePhoto photo={photo} fetchPhotos={fetchPhotos}/>
               <IconButton 
-                sx={{ color: 'rgba(255, 255, 255, 0.54)', height:80}}
+                sx={{ color: '#d32f2f', height:80,'&:hover': {
+                  color: '#9a0007',
+                  transform: 'scale(1.1)',
+                },}}
                 aria-label={`info about ${photo.title}`}
                 onClick={()=>{deletePhoto(photo)}}
                 >
                 <MdDelete />
               </IconButton>
+             
               </>
             }
           />

@@ -49,9 +49,20 @@ export default function CustomizedDialogs({post,fetchPosts}) {
 
   return (
     <React.Fragment>
-      <Button sx={{ m: 1, p: 0.5 }} variant="outlined" onClick={handleClickOpen}>
+      <IconButton
+        onClick={handleClickOpen}
+        sx={{
+          backgroundColor: '#1976d2',
+          color: 'white',
+          '&:hover': {
+            backgroundColor: '#115293',
+            transform: 'scale(1.1)',
+          },
+          transition: 'all 0.2s ease-in-out',
+        }}
+      >
         <MdCreate />
-      </Button>
+      </IconButton>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"

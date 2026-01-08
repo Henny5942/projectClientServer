@@ -48,9 +48,15 @@ export default function CustomizedDialogs({photo,fetchPhotos}) {
 
   return (
     <React.Fragment>
-      <Button sx={{border:"none",backgroundColor:"darkgrey"}} variant="outlined" onClick={handleClickOpen}>
-        <MdCreate />
-      </Button>
+      <IconButton 
+              sx={{ color: '#1976d2', height:80,'&:hover': {
+                color: '#115293',
+              },}}
+              onClick={handleClickOpen}
+              >
+              <MdCreate />
+            </IconButton>
+
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {MdDelete} from "react-icons/md"
 import UpdateUser from "./UpdateUser"
+import { IconButton } from '@mui/material'
 
 const SingleUser = ({user,fetchUsers}) => {
   const deleteUser= async()=>{
@@ -21,7 +22,21 @@ const SingleUser = ({user,fetchUsers}) => {
         {/* <p> {user.email}</p>
         <p> {user.phone}</p> */}
         <UpdateUser user={user} fetchUsers={fetchUsers}/>  
-        <button onClick={()=>{deleteUser()}}><MdDelete /></button>
+        <IconButton
+          onClick={() => deleteUser()}
+          sx={{
+            backgroundColor: '#d32f2f',
+            color: 'white',
+            '&:hover': {
+              backgroundColor: '#9a0007',
+              transform: 'scale(1.1)',
+            },
+            transition: 'all 0.2s ease-in-out',
+            ml: 1,
+          }}
+        >
+          <MdDelete />
+        </IconButton>
     </div>
   )
 }

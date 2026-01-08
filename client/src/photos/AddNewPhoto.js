@@ -78,29 +78,29 @@ export default function CustomizedDialogs({fetchPhotos}) {
           <CloseIcon />
         </IconButton>
         <form onSubmit={handleSubmit}>
-        <DialogContent sx={{display:"flex", flexDirection:"column"}} dividers >
+          <DialogContent sx={{display:"flex", flexDirection:"column"}} dividers >
             
-                <TextField onChange={(e)=>{setTitle(e.target.value)}} value={title}  label="Title" variant="outlined" sx={(theme)=>({marginBottom:"20px"})}/>
-               <FormControl fullWidth>
-      <InputLabel>image</InputLabel>
-      <Select 
-        value={imageUrl}
-        label="image"
-        onChange={(e) => setImageUrl(e.target.value)}
-        required
-      >
-        <MenuItem value="image1.jpg">image1</MenuItem>
-        <MenuItem value="image2.jpg">image2</MenuItem>
-        <MenuItem value="image3.jpg">image3</MenuItem>
-        <MenuItem value="image4.jpg">image4</MenuItem>
-        <MenuItem value="image5.jpg">image5</MenuItem>
-        <MenuItem value="image6.jpg">image6</MenuItem>
-        <MenuItem value="image7.jpg">image7</MenuItem>
-        <MenuItem value="image8.jpg">image8</MenuItem>
-        <MenuItem value="image9.jpg">image9</MenuItem>
+          <TextField onChange={(e)=>{setTitle(e.target.value)}} value={title}  label="Title" variant="outlined" sx={(theme)=>({marginBottom:"20px"})}/>
+          <FormControl fullWidth>
+            <InputLabel>image</InputLabel>
+            <Select 
+              value={imageUrl}
+              label="image"
+              onChange={(e) => setImageUrl(e.target.value)}
+              required
+            >
+              <MenuItem value="image1.jpg">image1</MenuItem>
+              <MenuItem value="image2.jpg">image2</MenuItem>
+              <MenuItem value="image3.jpg">image3</MenuItem>
+              <MenuItem value="image4.jpg">image4</MenuItem>
+              <MenuItem value="image5.jpg">image5</MenuItem>
+              <MenuItem value="image6.jpg">image6</MenuItem>
+              <MenuItem value="image7.jpg">image7</MenuItem>
+              <MenuItem value="image8.jpg">image8</MenuItem>
+              <MenuItem value="image9.jpg">image9</MenuItem>
 
-      </Select>
-    </FormControl>
+            </Select>
+          </FormControl>
         </DialogContent>
         <DialogActions>
             <Button type='submit' autoFocus >
